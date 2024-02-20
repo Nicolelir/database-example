@@ -80,16 +80,63 @@ tim_berners_lee = Programmer(
     famous_for="World Wide Web"
 )
 
+tim_nelson = Programmer( #--7-- updating this value
+    first_name="Tim",
+    last_name="Nelson",
+    gender="M",
+    nationality="Irish-American",
+    famous_for="Code Institute"
+)
+
 # -4--add each instance of our programmers to our session
-session.add(ada_lovelace)
-session.add(alan_turing)
-session.add(grace_hopper)
-session.add(margaret_hamilton)
-session.add(bill_gates)
-session.add(tim_berners_lee)
+# session.add(ada_lovelace)
+# session.add(alan_turing)
+# session.add(grace_hopper)
+# session.add(margaret_hamilton)
+# session.add(bill_gates)
+# session.add(tim_berners_lee)
+session.add(tim_nelson)
+
+# --7--updating a single record
+# programmer = session.query(Programmer).filter_by(id=14).first()#id=15 to me becouse I have more data
+# programmer.famous_for = "World President"
 
 # --5--commit our session to the database
 session.commit()
+
+# --8-- updating multiple records
+# people = session.query(Programmer)
+# for person in people:
+#     if person.gender == "F":
+#         person.gender = "Female"
+#     elif person.gender == "M":
+#         person.gender = "Male"
+#     else:
+#         print("Gender not defined")
+#     session.commit()
+
+# --9--deleting a single record
+# fname = input("Enter a first name: ")
+# lname = input("Enter a last name: ")
+# programmer = session.query(Programmer).filter_by(first_name=fname, last_name=lname).first()
+# defensive programming
+# if programmer is not None:
+#     print("Programmer Found: ", programmer.first_name + " " + programmer.last_name)
+#     confirmation = input("Are you sure you want to delete this record? (y/n) ")
+#     if confirmation.lower() == "y":
+#         session.delete(programmer)
+#         session.commit()
+#         print("Programmer has been deleted")
+#     else:
+#         print("Programmer not deleted")
+# else:
+#     print("No records found")
+
+# --10--delete multiple/all records
+# programmers = session.query(Programmer)
+# for programmer in programmers:
+#     session.delete(programmer)
+#     session.commit()
 
 
 # --6--query the database to find all Programmers
